@@ -1,4 +1,4 @@
--- https://github.com/wangshub/hammerspoon-config
+-- https://github.com/wangshub/hammerspoon-config/blob/master/ime/ime.lua
 -- 应用自动切换输入法
 
 local INPUT_CHINESE = "com.sogou.inputmethod.sogou.pinyin"

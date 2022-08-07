@@ -2,3 +2,4 @@
 /.config
 /forks
 *.sqlite3
+/.emoji

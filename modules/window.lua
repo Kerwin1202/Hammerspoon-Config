@@ -1,3 +1,4 @@
+-- https://github.com/wangshub/hammerspoon-config/blob/master/window/window.lua
 -- Window management
 
 -- Defines for window maximize toggler

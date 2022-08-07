@@ -1,4 +1,4 @@
--- https://github.com/wangshub/hammerspoon-config
+-- https://github.com/wangshub/hammerspoon-config/blob/master/window/window.lua
 -- 脚本更改自动重新加载
 
 function reloadConfig(paths)
