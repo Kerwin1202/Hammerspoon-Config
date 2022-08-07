@@ -1,4 +1,6 @@
--- https://github.com/wangshub/hammerspoon-config/tree/master/weather
+-- https://github.com/wangshub/hammerspoon-config
+-- 天气
+
 local urlApi = 'https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city='
 local menubar = hs.menubar.new()
 local menuData = {}

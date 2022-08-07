@@ -1,3 +1,5 @@
+-- https://github.com/wangshub/hammerspoon-config
+-- 脚本更改自动重新加载
 
 function reloadConfig(paths)
     doReload = false
