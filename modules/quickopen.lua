@@ -1,9 +1,5 @@
 -- 快捷打开链接、文件、目录
-
--- https://stackoverflow.com/questions/22831701/lua-read-beginning-of-a-string
-function string.starts(String,Start)
-	  return string.sub(String,1,string.len(Start))==Start
-end
+require 'modules.base'
 
 function quick_open()
 	local str = hs.pasteboard.readString()
@@ -21,4 +17,19 @@ function quick_open()
 	end
 	-- hs.alert(str)
 end
+
+local thisWatch;
+local function open_dict(text)
+	hs.execute("open dict://\"" .. text .. "\""); 
+	thisWatch:stop();
+end
+
+local function quick_open_dict()
+	thisWatch = hs.pasteboard.watcher.new(open_dict);
+	hs.eventtap.keyStroke({'cmd'}, 'C')
+end
+
 hs.hotkey.bind({"cmd"}, 'F1', quick_open)
+
+-- 本来想着是用以快速查词 但是因为自带词典无法查询句子所以暂时不用
+-- hs.hotkey.bind({}, "F6", quick_open_dict)

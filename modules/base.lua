@@ -96,3 +96,9 @@ function popright (list)
     list.last = last - 1
     return value
 end
+
+
+-- https://stackoverflow.com/questions/22831701/lua-read-beginning-of-a-string
+function string.starts(String,Start)
+	  return string.sub(String,1,string.len(Start))==Start
+end

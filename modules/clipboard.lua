@@ -51,6 +51,10 @@ local function incrementText(text)
 end
 
 local function storeText(text)
+    if text ~= nil and string.starts(text, "data:image/") then
+        -- base64 的图片 
+        return
+    end
     hs.console.printStyledtext(hs.pasteboard.readStyledText())
     if text == nil then
         local image = hs.pasteboard.readImage();

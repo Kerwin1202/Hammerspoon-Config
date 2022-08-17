@@ -36,6 +36,10 @@ defaultConfig = {{
     name = '显示快捷键',
     enable = false
 },{
+    module = 'modules.image',
+    name = '图片 Base64',
+    enable = true
+},{
     module = 'modules.weather',
     name = '当地天气',
     enable = false

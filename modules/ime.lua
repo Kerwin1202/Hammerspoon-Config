@@ -1,11 +1,12 @@
 -- https://github.com/wangshub/hammerspoon-config/blob/master/ime/ime.lua
 -- 应用自动切换输入法
 
-local INPUT_CHINESE = "com.sogou.inputmethod.sogou.pinyin"
+local INPUT_SOUGOU_CHINESE = "com.sogou.inputmethod.sogou.pinyin"
 local INPUT_ABC = 'com.apple.keylayout.ABC'
+local INPUT_CHINESE = 'com.apple.inputmethod.SCIM.ITABC'
 
 local function Chinese()
-    hs.keycodes.currentSourceID(INPUT_CHINESE)
+    hs.keycodes.currentSourceID(INPUT_SOUGOU_CHINESE)
 end
 
 local function English()
@@ -19,6 +20,7 @@ local app2Ime = {
     {'/Applications/CotEditor.app', 'English'},
     {'/Applications/Microsoft Remote Desktop.app', 'English'},
     {'/Applications/WindTerm.app', 'English'},
+    {'/Applications/Raycast.app', 'English'},
 }
 
 function updateFocusAppInputMethod()
