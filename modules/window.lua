@@ -136,6 +136,37 @@ function center()
    win:centerOnScreen()
 end
 
+-- 扩展 move_to_corner 函数以包括上方中间和下方中间
+function move_to_corner(corner)
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+
+    if corner == "top_left" then
+        f.x = max.x
+        f.y = max.y
+    elseif corner == "top_right" then
+        f.x = max.x + (max.w - f.w)
+        f.y = max.y
+    elseif corner == "bottom_left" then
+        f.x = max.x
+        f.y = max.y + (max.h - f.h)
+    elseif corner == "bottom_right" then
+        f.x = max.x + (max.w - f.w)
+        f.y = max.y + (max.h - f.h)
+    elseif corner == "top_middle" then
+        f.x = max.x + (max.w - f.w) / 2
+        f.y = max.y
+    elseif corner == "bottom_middle" then
+        f.x = max.x + (max.w - f.w) / 2
+        f.y = max.y + (max.h - f.h)
+    end
+
+    win:setFrame(f)
+end
+
+
 -------- Key bindings
 
 -- Halves of the screen
@@ -166,3 +197,11 @@ hs.hotkey.bind({"ctrl", "cmd"}, "L", hs.fnutils.partial(winresize, "two_thirds")
 hs.hotkey.bind({"ctrl", "cmd"}, "U", hs.fnutils.partial(winresize, "right_two_thirds"))  -- 用于右侧 2/3 的布局
 hs.hotkey.bind({"ctrl", "cmd"}, "T", hs.fnutils.partial(winresize, "top_two_thirds"))  -- 用于上方 2/3 的布局
 hs.hotkey.bind({"ctrl", "cmd"}, "B", hs.fnutils.partial(winresize, "bottom_two_thirds"))  -- 下面 2/3
+
+
+hs.hotkey.bind({"ctrl", "cmd"}, "1", function() move_to_corner("top_left") end)
+hs.hotkey.bind({"ctrl", "cmd"}, "2", function() move_to_corner("top_right") end)
+hs.hotkey.bind({"ctrl", "cmd"}, "3", function() move_to_corner("bottom_left") end)
+hs.hotkey.bind({"ctrl", "cmd"}, "4", function() move_to_corner("bottom_right") end)
+hs.hotkey.bind({"ctrl", "cmd"}, "5", function() move_to_corner("top_middle") end)
+hs.hotkey.bind({"ctrl", "cmd"}, "6", function() move_to_corner("bottom_middle") end)
