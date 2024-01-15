@@ -35,6 +35,15 @@ function winresize(how)
       newrect = {0,1/3,1,1/3}
    elseif how == "bottom_third" or how == "vthird-2" then
       newrect = {0,2/3,1,1/3}
+   elseif how == "two_thirds" then
+    newrect = {0, 0, 2/3, 1}  -- 左侧 2/3 的屏幕布局
+   elseif how == "bottom_two_thirds" then
+    newrect = {0, 1/3, 1, 2/3}  -- 底部 2/3 的屏幕布局
+   elseif how == "top_two_thirds" then
+    newrect = {0, 0, 1, 2/3}  -- 上方 2/3 的屏幕布局
+   elseif how == "right_two_thirds" then
+    newrect = {1/3, 0, 2/3, 1}  -- 右侧 2/3 的屏幕布局
+
    end
 
    win:move(newrect)
@@ -151,3 +160,9 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Up",    hs.fnutils.partial(winresize, "m
 -- Move between screens
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left",  hs.fnutils.partial(winmovescreen, "left"))
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", hs.fnutils.partial(winmovescreen, "right"))
+
+
+hs.hotkey.bind({"ctrl", "cmd"}, "L", hs.fnutils.partial(winresize, "two_thirds"))  -- 左侧 2/3
+hs.hotkey.bind({"ctrl", "cmd"}, "U", hs.fnutils.partial(winresize, "right_two_thirds"))  -- 用于右侧 2/3 的布局
+hs.hotkey.bind({"ctrl", "cmd"}, "T", hs.fnutils.partial(winresize, "top_two_thirds"))  -- 用于上方 2/3 的布局
+hs.hotkey.bind({"ctrl", "cmd"}, "B", hs.fnutils.partial(winresize, "bottom_two_thirds"))  -- 下面 2/3
